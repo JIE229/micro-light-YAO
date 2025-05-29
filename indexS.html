@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>街灯为你而亮</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background-color 1s ease;
+      background-color: #111; /* 夜色 */
+      color: #fff;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      text-align: center;
+    }
+    .lit {
+      background-color: #FFD680; /* 暖黄色路灯 */
+      color: #333;
+    }
+    #message {
+      font-size: 1.5rem;
+      padding: 1rem;
+      border: 2px solid currentColor;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="message">点亮北极星</div>
+
+  <script>
+    const body = document.body;
+    const msg = document.getElementById("message");
+    let isLit = false;
+
+    msg.addEventListener("click", () => {
+      isLit = !isLit;
+      body.classList.toggle("lit", isLit);
+      msg.textContent = isLit
+        ? "左满舵，前进四，Off we go~"
+        : "点亮北极星";
+    });
+  </script>
+</body>
+</html>
